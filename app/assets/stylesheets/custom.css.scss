@@ -1,0 +1,36 @@
+@import 'bootstrap/dist/css/bootstrap';
+
+.navbar {
+  background-color: black !important;
+}
+
+.nav-link{
+  color: white !important;
+}
+
+#logo {
+  float: left;
+  font-size: 1.7em;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  font-weight: bold;
+}
+
+#home-container{
+  margin-top: 25px;
+}
+
+.jumbotron{
+  background-image: asset-url('jambo.jpg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 500px;
+}
+
+.borda_texto{
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #F0FFFF;
+   color: #fffdd9;
+  }
