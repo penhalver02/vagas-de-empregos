@@ -1,0 +1,15 @@
+---
+  pt-BR:
+    activerecord:
+      models:
+        job_opportunity: Vaga de emprego
+      attributes:
+        job_opportunity:
+          title: Título
+          description: Descrição
+          skills: Habilidades
+          salary: Salário
+          job_level: Cargo
+          end_data: Data final
+          location: Localização
+          headhunter: Recrutador

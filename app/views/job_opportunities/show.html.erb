@@ -1,0 +1,11 @@
+<h2 class="text-center">Detalhes</h2>
+
+<p><%= @job.title %></p>
+<p><%= @job.description %></p>
+<p><%= @job.skills %></p>
+<p><%= JobOpportunity.human_attribute_name(:salary) %>: <%= @job.salary %></p>
+<p><%= @job.job_level %></p>
+<p><%= @job.end_data %></p>
+<p><%= JobOpportunity.human_attribute_name(:location) %>: <%= @job.location %></p>
+<p><%= @job.headhunter.email %></p>
+<%= link_to 'Voltar', job_opportunities_path %>
