@@ -59,4 +59,5 @@ feature 'Headhunter view jobs' do
 
     expect(current_path).to eq(job_opportunities_path)
   end
+
 end

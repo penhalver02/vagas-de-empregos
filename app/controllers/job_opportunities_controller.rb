@@ -14,7 +14,7 @@ class JobOpportunitiesController < ApplicationController
 
   def create
     
-    @job_opportunity = JobOpportunity.new(job_params)
+    @job_opportunity = JobOpportunity.new(job_opportunity_params)
     if @job_opportunity.save
       redirect_to @job_opportunity
     else
@@ -23,9 +23,25 @@ class JobOpportunitiesController < ApplicationController
     end
   end
 
+  def edit
+    @job_opportunity = JobOpportunity.find(params[:id])  
+    @headhunters = Headhunter.all
+  end
+
+  def update
+    @job_opportunity = JobOpportunity.find(params[:id])
+    
+    if @job_opportunity.update(job_opportunity_params)
+      redirect_to @job_opportunity
+    else
+      @headhunters = Headhunter.all
+      render :edit
+    end
+  end
+
   private
 
-  def job_params
+  def job_opportunity_params
     params.require(:job_opportunity).permit(:title, :description, :skills, :salary, :job_level, :end_data, :location, 
                                             :headhunter_id)
   end

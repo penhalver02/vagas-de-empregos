@@ -8,4 +8,6 @@
 <p><%= l @job_opportunity.end_data %></p>
 <p><%= JobOpportunity.human_attribute_name(:location) %>: <%= @job_opportunity.location %></p>
 <p><%= @job_opportunity.headhunter.email %></p>
+
+<%= link_to 'Editar', edit_job_opportunity_path(@job_opportunity) %>
 <%= link_to 'Voltar', job_opportunities_path %>
