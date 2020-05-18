@@ -41,7 +41,7 @@ feature 'Headhunter view jobs' do
       expect(page).to have_content('Conhecimento em ruby, javascript')
       expect(page).to have_content('Salário: 3500')
       expect(page).to have_content('Desenvolvedor junior')
-      expect(page).to have_content(job_opportunity.end_data)
+      expect(page).to have_content(I18n.l(job_opportunity.end_data))
       expect(page).to have_content('Localização: Avenida Paulista')
       expect(page).to have_content(headhunter.email)
   end

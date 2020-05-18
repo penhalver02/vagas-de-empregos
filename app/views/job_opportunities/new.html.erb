@@ -1,0 +1,8 @@
+<h2>Cadastrar nova vaga</h2>
+<% if @job_opportunity.errors.any?%>
+  <%= @job_opportunity.errors.full_messages.each do |message| %>
+    <%= message %>
+  <% end %>
+<% end %>
+<%# render 'share/errors', object: @job_opportunity %>
+<%= render 'form' %>

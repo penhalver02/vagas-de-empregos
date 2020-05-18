@@ -1,16 +1,19 @@
 <h2 class="text-center">Vagas</h2>
 
-<% if @jobs.empty?%>
+<% if @job_opportunities.empty?%>
   <p>Nenhuma vaga criada</p>
 <% else %>
-  <%= @jobs.each do |job| %>
+  <%= @job_opportunities.each do |job_opportunity| %>
     <div class="card">
       <div class="card-header">
-        <%= link_to job.title, job %>
+        <%= link_to job_opportunity.title, job_opportunity %>
       </div>
       <div class="card-body">
-        <p class="card-text"><%= job.description %></p>
+        <p class="card-text"><%= job_opportunity.description %></p>
       </div>
     </div>
   <% end %>
+  
 <% end %>
+
+<%= link_to 'Cadastrar vaga', new_job_opportunity_path%>
