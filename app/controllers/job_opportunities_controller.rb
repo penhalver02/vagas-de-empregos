@@ -1,10 +1,12 @@
 class JobOpportunitiesController < ApplicationController
+  before_action :authenticate_headhunter!
+  before_action :set_job_opportunity, only: [:edit, :update, :destroy, :show]
+  
   def index
     @job_opportunities = JobOpportunity.all
   end
 
   def show
-    @job_opportunity = JobOpportunity.find(params[:id])
   end
 
   def new
@@ -14,7 +16,8 @@ class JobOpportunitiesController < ApplicationController
 
   def create
     
-    @job_opportunity = JobOpportunity.new(job_opportunity_params)
+    @job_opportunity = JobOpportunity.new(job_opportunity_params.merge(headhunter: current_headhunter))
+  
     if @job_opportunity.save
       redirect_to @job_opportunity
     else
@@ -24,13 +27,10 @@ class JobOpportunitiesController < ApplicationController
   end
 
   def edit
-    @job_opportunity = JobOpportunity.find(params[:id])  
     @headhunters = Headhunter.all
   end
 
   def update
-    @job_opportunity = JobOpportunity.find(params[:id])
-    
     if @job_opportunity.update(job_opportunity_params)
       redirect_to @job_opportunity
     else
@@ -39,10 +39,20 @@ class JobOpportunitiesController < ApplicationController
     end
   end
 
+  def destroy
+    @job_opportunity.destroy
+
+    redirect_to job_opportunities_path
+  end
+
   private
 
   def job_opportunity_params
-    params.require(:job_opportunity).permit(:title, :description, :skills, :salary, :job_level, :end_data, :location, 
-                                            :headhunter_id)
+    params.require(:job_opportunity).permit(:title, :description, :skills, :salary, :job_level, :end_data, :location)
   end
+
+  def set_job_opportunity
+    @job_opportunity = JobOpportunity.find(params[:id])
+  end
+
 end

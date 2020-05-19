@@ -2,8 +2,11 @@ require 'rails_helper'
 
 feature 'Headhunter edit job' do
   scenario 'successfully' do
-    job_opportunity = create(:job_opportunity, title: 'Desenvolvedor Junior')
+    headhunter = create(:headhunter)
+    job_opportunity = create(:job_opportunity, title: 'Desenvolvedor Junior', headhunter: headhunter)
+    
 
+    login_as headhunter, scope: :headhunter
     visit job_opportunity_path(job_opportunity)
     click_on 'Editar'
 
@@ -14,8 +17,10 @@ feature 'Headhunter edit job' do
   end
 
   scenario 'successfully' do
-    job_opportunity = create(:job_opportunity, title: 'Desenvolvedor Junior')
-
+    headhunter = create(:headhunter)
+    job_opportunity = create(:job_opportunity, title: 'Desenvolvedor Junior', headhunter: headhunter)
+    
+    login_as headhunter, scope: :headhunter
     visit job_opportunity_path(job_opportunity)
     click_on 'Editar'
 

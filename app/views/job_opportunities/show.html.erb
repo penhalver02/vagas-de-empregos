@@ -1,13 +1,39 @@
 <h2 class="text-center">Detalhes</h2>
-
-<p><%= @job_opportunity.title %></p>
-<p><%= @job_opportunity.description %></p>
-<p><%= @job_opportunity.skills %></p>
-<p><%= JobOpportunity.human_attribute_name(:salary) %>: <%= @job_opportunity.salary %></p>
-<p><%= @job_opportunity.job_level %></p>
-<p><%= l @job_opportunity.end_data %></p>
-<p><%= JobOpportunity.human_attribute_name(:location) %>: <%= @job_opportunity.location %></p>
-<p><%= @job_opportunity.headhunter.email %></p>
-
-<%= link_to 'Editar', edit_job_opportunity_path(@job_opportunity) %>
-<%= link_to 'Voltar', job_opportunities_path %>
+<div class="container">
+  <div class="row justify-content-md-center">
+    <div class="col-8 mt-4">
+      <div class="card text-center shadow mb-5 bg-white rounded">
+        <div class="card-header font-italic">
+          <div class="card-header font-italic">
+            <%= @job_opportunity.title %>
+          </div>
+          <div class="card-body">
+            <%= @job_opportunity.description %>
+          </div>
+          <div class="card-body">
+            <%= @job_opportunity.skills %>
+          </div>
+           <div class="card-body">
+            <%= JobOpportunity.human_attribute_name(:salary) %>: <%= @job_opportunity.salary %>
+          </div>
+           <div class="card-body">
+            <%= @job_opportunity.job_level %>
+          </div>
+           <div class="card-body">
+            <%= l @job_opportunity.end_data %>
+          </div>
+           <div class="card-body">
+            <%= JobOpportunity.human_attribute_name(:location) %>: <%= @job_opportunity.location %>
+          </div>
+           <div class="card-body">
+            <%= @job_opportunity.headhunter.email %>
+          </div>
+          
+          <%= link_to 'Editar', edit_job_opportunity_path(@job_opportunity), class: "btn btn-outline-dark btn-lg" %>
+          <%= link_to 'Apagar', job_opportunity_path(@job_opportunity), method: :delete, data: {confirm: 'Você tem certeza'}, class: "btn btn-outline-dark btn-lg" %>
+          <%= link_to 'Voltar', job_opportunities_path, class: "btn btn-outline-dark btn-lg" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

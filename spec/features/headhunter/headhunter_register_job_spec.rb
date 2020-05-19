@@ -4,6 +4,7 @@ feature 'Headhunter register jo' do
   scenario 'successfully' do
     headhunter = create(:headhunter)
 
+    login_as headhunter, scope: :headhunter
     visit root_path
     click_on 'Vagas'
     click_on 'Cadastrar vaga'
@@ -15,7 +16,7 @@ feature 'Headhunter register jo' do
     fill_in 'Cargo', with: 'Desenvolvedor junior'
     fill_in 'Data final', with:  '20/08/2090'
     fill_in 'Localização', with: 'Avenida Paulista'
-    select headhunter.email, from: 'Recrutador'
+    
 
     click_on 'Enviar'
 
@@ -30,6 +31,9 @@ feature 'Headhunter register jo' do
   end
 
   scenario 'must fill in all' do
+    headhunter = create(:headhunter)
+
+    login_as headhunter, scope: :headhunter
     visit new_job_opportunity_path
     click_on 'Enviar'
 
@@ -40,5 +44,11 @@ feature 'Headhunter register jo' do
     expect(page).to have_content('Cargo não pode ficar em branco')
     expect(page).to have_content('Data final não pode ficar em branco')
     expect(page).to have_content('Localização não pode ficar em branco')
+  end
+
+  scenario 'and must be authenticated' do
+    visit new_job_opportunity_path
+
+    expect(current_path).to eq(new_headhunter_session_path)
   end
 end

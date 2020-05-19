@@ -47,17 +47,31 @@ feature 'Headhunter view jobs' do
   end
 
   scenario 'and no jobs created' do
+    headhunter = create(:headhunter)
+
+    login_as headhunter, scope: :headhunter
     visit job_opportunities_path
 
     expect(page).to have_content('Nenhuma vaga criada')
   end
 
   scenario 'and return to index' do
-    job_opportunity = create(:job_opportunity)
+    headhunter = create(:headhunter)
+    job_opportunity = create(:job_opportunity, headhunter: headhunter)
+    
+    login_as headhunter, scope: :headhunter
     visit job_opportunity_path(job_opportunity)
     click_on 'Voltar'
 
     expect(current_path).to eq(job_opportunities_path)
   end
 
+  scenario 'cannot view unless logged in' do
+    job_opportunity = create(:job_opportunity)
+
+    visit job_opportunity_path(job_opportunity)
+
+    expect(current_path).to eq(new_headhunter_session_path)
+  end
+  
 end
