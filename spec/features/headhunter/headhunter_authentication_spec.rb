@@ -5,7 +5,7 @@ feature 'Headhunter authentication' do
     headhunter = Headhunter.create!(email: 'test@test.com.br', password: '12345678')
 
     visit root_path
-    click_on 'Entrar'
+    click_on 'Entrar como Recrutador'
     fill_in 'Email', with: 'test@test.com.br'
     fill_in 'Senha', with: '12345678'
     within 'form' do
@@ -14,7 +14,7 @@ feature 'Headhunter authentication' do
     
 
     expect(page).to have_content('Login efetuado com sucesso!')
-    expect(page).not_to have_link('Entrar')
+    expect(page).not_to have_link('Entrar como Recrutador')
     expect(page).to have_link('Sair')
   end
 
@@ -31,7 +31,7 @@ feature 'Headhunter authentication' do
 
   scenario 'sing up' do
     visit root_path
-    click_on 'Registrar recrutador'
+    click_on 'Registrar Recrutador'
     fill_in 'Email', with: 'test@test.com.br'
     fill_in 'Senha', with: '12345678'
     fill_in 'Confirmação de senha', with: '12345678'
@@ -39,7 +39,7 @@ feature 'Headhunter authentication' do
 
     expect(page).to have_content('Login efetuado com sucesso')
     expect(page).to have_link('Sair')
-    expect(page).not_to have_link('Entrar')
+    expect(page).not_to have_link('Entrar como Recrutador')
   end
 
   xscenario 'and must fill in all fields' do

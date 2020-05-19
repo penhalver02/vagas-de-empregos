@@ -1,0 +1,17 @@
+---
+  pt-BR:
+    activerecord:
+      models:
+        user: Usuário
+      attributes:
+        user:
+          email: Email
+          password: Senha
+          password_confirmation: Confirmação de senha
+    devise:
+        sessions:
+          new:
+              log_in: Entrar
+        registrations:
+          new:
+              sing_up: Cadastrar-se
