@@ -1,0 +1,16 @@
+---
+  pt-BR:
+    activerecord:
+      models:
+        perfil: Perfil
+      attributes:
+        perfil:
+          full_name: Nome Completo
+          social_name: Nome Social
+          date_birth: Data de aniversário
+          degree: Formação
+          description: Descrição
+          end_data: Data final
+          location: Localização
+          work_experience: Experiência
+          headhunter_id: Recrutador

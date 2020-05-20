@@ -13,7 +13,6 @@ feature 'User authentication' do
       click_on 'Entrar'
     end
     
-
     expect(page).to have_content('Login efetuado com sucesso!')
     expect(page).not_to have_link('Entrar como Usuário')
     expect(page).to have_link('Sair')
@@ -39,8 +38,13 @@ feature 'User authentication' do
     
     click_on 'Cadastrar-se'
 
+    expect(current_path).to eq(new_perfil_path)
     expect(page).to have_content('Login efetuado com sucesso')
     expect(page).to have_link('Sair')
     expect(page).not_to have_link('Entrar como Usuário')
+  end
+  
+  scenario 'create perfil after login' do
+    
   end
 end

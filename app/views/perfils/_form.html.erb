@@ -1,0 +1,48 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-10">
+      <%= render 'share/errors', object: @perfil %>
+      <%= form_with model: @perfil, class: "shadow p-3 mb-3 bg-dark rounded", local: true do |f| %>
+        <div class="form-group row">
+          <%= f.label :full_name, class: "col-2 col-form-label text-light" %>
+          <div class="col-10">
+            <%= f.text_field :full_name, class: "form-control shadow rounded" %>
+          </div>
+        </div>
+        <div class="form-group row">
+          <%= f.label :description, class: "col-2 col-form-label text-light" %>
+          <div class="col-10"> 
+            <%= f.text_area :description, rows: 10, class: "form-control shadow rounded" %>
+          </div>
+        </div>
+        <div class="form-group row">
+          <%= f.label :social_name, class: "col-2 col-form-label text-light" %>
+          <div class="col-10">
+            <%= f.text_field :social_name, class: "form-control shadow rounded" %>
+          </div>
+        </div>
+        <div class="form-group row">
+          <%= f.label :date_birth, class: "col-2 col-form-label text-light" %>
+          <div class="col-10">
+            <%= f.date_field :date_birth, class: "form-control shadow rounded" %>
+          </div>
+        </div>
+        <div class="form-group row">
+          <%= f.label :degree, class: "col-2 col-form-label text-light"%>
+          <div class="col-10">
+            <%= f.text_field :degree, class: "form-control shadow rounded" %>
+          </div>
+        </div>
+        <div class="form-group row">
+          <%= f.label :work_experience, class: "col-2 col-form-label text-light" %>
+          <div class="col-10">
+            <%= f.date_field :work_experience, class: "form-control shadow rounded" %>
+          </div>
+        </div>
+        <div class="form-group row justify-content-center">
+          <%= f.submit 'Salvar', class: "btn btn-outline-light btn-lg" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

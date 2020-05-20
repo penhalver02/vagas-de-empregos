@@ -26,6 +26,9 @@
           <li class="nav-item">  
             <% if user_signed_in? %>
               <%= link_to 'Sair', destroy_user_session_path, method: :delete, class: "nav-link"%>
+              <% if !current_user.perfil.nil?%>
+                <%= link_to current_user.perfil.full_name, perfil_path(current_user.perfil), class: "nav-link"%>
+              <% end %>
             <% else %>
               <%= link_to 'Entrar como Usuário', new_user_session_path, class: "nav-link"%>
             <% end %>
