@@ -38,13 +38,30 @@ feature 'User authentication' do
     
     click_on 'Cadastrar-se'
 
-    expect(current_path).to eq(new_perfil_path)
+    expect(current_path).to eq(edit_perfil_path(User.last.perfil.id))
     expect(page).to have_content('Login efetuado com sucesso')
     expect(page).to have_link('Sair')
     expect(page).not_to have_link('Entrar como Usuário')
   end
   
-  scenario 'create perfil after login' do
+  scenario 'login' do
+    user = User.create!(email: 'user@test.com.br', password: '12345678')
+    user.perfil.update(full_name: 'Lucas Penhalver', social_name: 'Lucas Penhalver', date_birth: '11/11/1989',
+                      degree: 'Engenharia de produção',
+                      description: 'Diariamente acompanha o sistema produtivo da empresa visando sua otimização',
+                      work_experience: 'De 3 a 5 anos')
     
+    visit root_path
+    click_on 'Entrar como Usuário'
+    fill_in 'Email', with: 'user@test.com.br'
+    fill_in 'Senha', with: '12345678'
+    within 'form' do
+      click_on 'Entrar'
+    end
+    
+    expect(current_path).to eq(job_opportunities_path)
+    expect(page).to have_content('Login efetuado com sucesso!')
+    expect(page).not_to have_link('Entrar como Usuário')
+    expect(page).to have_link('Sair')
   end
 end

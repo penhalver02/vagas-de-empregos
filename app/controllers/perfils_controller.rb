@@ -3,17 +3,17 @@ class PerfilsController < ApplicationController
     @perfil = Perfil.find(params[:id])
   end
 
-  def new
-    @perfil = Perfil.new
+  def edit
+    @perfil = Perfil.find(params[:id])
   end
 
-  def create
-    @perfil = Perfil.new(perfil_params.merge(user: current_user))
+  def update
+    @perfil = Perfil.find(params[:id])
     
-    if @perfil.save
+    if @perfil.update(perfil_params)
       redirect_to @perfil
     else
-      render :new
+      render :edit
     end
   end
 

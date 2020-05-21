@@ -1,5 +1,6 @@
 class JobOpportunitiesController < ApplicationController
-  before_action :authenticate_headhunter!
+  before_action :authenticate_headhunter_and_user, only: [:show, :index]
+  before_action :authenticate_headhunter!, except: [:show, :index]
   before_action :set_job_opportunity, only: [:edit, :update, :destroy, :show]
   
   def index
@@ -53,6 +54,10 @@ class JobOpportunitiesController < ApplicationController
 
   def set_job_opportunity
     @job_opportunity = JobOpportunity.find(params[:id])
+  end
+
+  def authenticate_headhunter_and_user
+    authenticate_user! unless(headhunter_signed_in? || user_signed_in?)
   end
 
 end
