@@ -1,5 +1,6 @@
 class Perfil < ApplicationRecord
   belongs_to :user
+  has_one_attached :avatar
 
   def completed?
     [full_name,

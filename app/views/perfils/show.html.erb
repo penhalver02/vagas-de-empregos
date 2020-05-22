@@ -1,5 +1,9 @@
 <h2>Detalhes do perfil</h2>
 
+<div  style="width:200px; height:auto">
+  <%= image_tag(@perfil.avatar, class: "rounded mx-auto d-block" )if @perfil.avatar.nil? %>
+</div>
+
 <%= @perfil.full_name %>
 <%= @perfil.social_name %>
 <%= l @perfil.date_birth %>
