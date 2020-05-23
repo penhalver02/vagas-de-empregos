@@ -6,7 +6,11 @@
 
 <%= @perfil.full_name %>
 <%= @perfil.social_name %>
-<%= l @perfil.date_birth %>
+<%= l @perfil.date_birth if @perfil.date_birth %>
 <%= @perfil.degree %>
 <%= @perfil.description %>
 <%= @perfil.work_experience %>
+<% if @perfil.job_perfils.present?%>
+<% binding.pry%>
+  <p>Participando da vaga : <%= @perfil.job_opportunities %></p>
+<% end %>
