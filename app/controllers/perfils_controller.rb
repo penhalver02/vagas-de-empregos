@@ -1,18 +1,14 @@
 class PerfilsController < ApplicationController
+  before_action :find_perfil, only: [:show, :update, :edit]
   before_action :set_attributes_for_headhunter, only: :show, if: :headhunter_signed_in?
-  
+
   def show
-    @perfil = Perfil.find(params[:id])
-    
   end
 
   def edit
-    @perfil = Perfil.find(params[:id])
   end
 
   def update
-    @perfil = Perfil.find(params[:id])
-    
     if @perfil.update(perfil_params)
       redirect_to @perfil
     else
@@ -34,5 +30,8 @@ class PerfilsController < ApplicationController
   def set_attributes_for_headhunter
     @comments = current_headhunter.comments
     @comment = Comment.new(perfil: @perfil)
+  end
+  def find_perfil
+    @perfil = Perfil.find(params[:id])
   end
 end

@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   end
   resources :perfils, only: [:show, :edit, :update, :index] do
     resources :comments, only: [:new, :create]
+    resources :favorites, only: [:create, :destroy]
   end
 
   get '/headhunters/job_opportunities', to: 'job_opportunities#headhunter', as: :headhunter_job_opportunities
