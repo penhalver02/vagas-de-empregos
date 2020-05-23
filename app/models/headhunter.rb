@@ -4,4 +4,5 @@ class Headhunter < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :job_opportunities
+  has_many :comments
 end

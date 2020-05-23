@@ -1,0 +1,7 @@
+<h1>Criar comentario</h1>
+
+<%= form_with model: [@perfil, @comment] , local: true do |f|%>
+  <%= f.label :message, 'Menssagem' %>
+  <%= f.text_field :message %>
+  <%= f.submit 'Enviar' %>
+<% end %>

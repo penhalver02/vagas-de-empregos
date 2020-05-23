@@ -1,11 +1,11 @@
 FactoryBot.define do
   factory :perfil do
-    full_name { "MyString" }
-    social_name { "MyString" }
-    date_birth { "2020-05-20" }
-    degree { "MyString" }
-    description { "MyString" }
-    work_experience { "MyString" }
-    user { nil }
+    full_name { "Lucas Penhalver" }
+    social_name { "Lucas Penhalver" }
+    date_birth { "11/11/1989" }
+    degree { "Engenharia de produção" }
+    description { "Diariamente acompanha o sistema produtivo da empresa visando sua otimização" }
+    work_experience { "De 3 a 5 anos" }
+    user
   end
 end

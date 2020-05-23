@@ -2,6 +2,7 @@ class Perfil < ApplicationRecord
   belongs_to :user
   has_many :job_perfils
   has_many :job_opportunities, through: :job_perfils
+  has_many :comments
   has_one_attached :avatar
 
   def completed?

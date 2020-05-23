@@ -10,9 +10,17 @@
 <%= @perfil.degree %>
 <%= @perfil.description %>
 <%= @perfil.work_experience %>
-<% if @perfil.job_opportunities.present?%>
+<% if user_signed_in?%>
+  <% if @perfil.job_opportunities.present?%>
+    <% @perfil.job_opportunities.each do |job_perfil| %>
+      <p>Participando da vaga: <%= job_perfil.title %></p>
+    <% end %>
+  <% end %>
+<% end %>
 
-  <% @perfil.job_opportunities.each do |job_perfil| %>
-    <p>Participando da vaga: <%= job_perfil.title %></p>
+<% if headhunter_signed_in?%>
+  <%= link_to 'Comentar', new_perfil_comment_path(@perfil) %>
+  <% @comments.each do |comment|%>
+    <%= comment.message %>
   <% end %>
 <% end %>

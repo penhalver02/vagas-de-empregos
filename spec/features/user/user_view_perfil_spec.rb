@@ -2,7 +2,7 @@ require 'rails_helper'
 
 feature 'User view perfil' do
   scenario 'successfully' do
-    user = create(:user)
+    user = create(:user, email: 'lucas@test.com.br')
     perfil = Perfil.create!(full_name: 'Lucas Penhalver', social_name: 'Lucas Penhalver', date_birth: '11/11/1989',
                             degree: 'Engenharia de produção',
                             description: 'Diariamente acompanha o sistema produtivo da empresa visando sua otimização',
@@ -10,7 +10,7 @@ feature 'User view perfil' do
 
     login_as user, scope: :user
     visit root_path
-    click_on 'Lucas Penhalver'
+    click_on 'lucas@test.com.br'
 
     expect(page).to have_content('Lucas Penhalver')
     expect(page).to have_content('Lucas Penhalver')
