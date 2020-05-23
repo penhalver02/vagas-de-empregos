@@ -3,6 +3,11 @@ class JobOpportunitiesController < ApplicationController
   before_action :authenticate_headhunter!, except: [:show, :index]
   before_action :set_job_opportunity, only: [:edit, :update, :destroy, :show]
   
+  def headhunter
+    @job_opportunities = current_headhunter.job_opportunities
+    render :index
+  end
+
   def index
     @job_opportunities = JobOpportunity.all
   end
@@ -12,7 +17,7 @@ class JobOpportunitiesController < ApplicationController
 
   def new
     @job_opportunity = JobOpportunity.new
-    @headhunters = Headhunter.all
+    
   end
 
   def create
@@ -22,13 +27,12 @@ class JobOpportunitiesController < ApplicationController
     if @job_opportunity.save
       redirect_to @job_opportunity
     else
-      @headhunters = Headhunter.all
+     
       render :new
     end
   end
 
   def edit
-    @headhunters = Headhunter.all
   end
 
   def update

@@ -10,7 +10,9 @@
 <%= @perfil.degree %>
 <%= @perfil.description %>
 <%= @perfil.work_experience %>
-<% if @perfil.job_perfils.present?%>
-<% binding.pry%>
-  <p>Participando da vaga : <%= @perfil.job_opportunities %></p>
+<% if @perfil.job_opportunities.present?%>
+
+  <% @perfil.job_opportunities.each do |job_perfil| %>
+    <p>Participando da vaga: <%= job_perfil.title %></p>
+  <% end %>
 <% end %>

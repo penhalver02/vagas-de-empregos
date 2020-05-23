@@ -19,6 +19,7 @@
           <li class="nav-item">  
             <% if headhunter_signed_in? %>
               <%= link_to 'Sair', destroy_headhunter_session_path, method: :delete, class: "nav-link"%>
+               <%= link_to 'Minhas Vagas', headhunter_job_opportunities_path, class: "nav-link"%>
             <% else %>
               <%= link_to 'Entrar como Recrutador', new_headhunter_session_path, class: "nav-link"%>
             <% end %>
