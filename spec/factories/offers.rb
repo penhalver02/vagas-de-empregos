@@ -1,12 +1,12 @@
 FactoryBot.define do
   factory :offer do
-    begin_date { "2020-05-24" }
-    salary { 1.5 }
-    benefit { "MyString" }
-    role { "MyString" }
-    headhunter { nil }
-    job_opportunity { nil }
-    perfil { nil }
-    status { "" }
+    begin_date { "10/03/2090" }
+    salary { 4000}
+    benefit { "Vale refeicao" }
+    role { "Desenvolver projetos de melhoria" }
+    headhunter 
+    job_opportunity 
+    perfil 
+    status { 0 }
   end
 end

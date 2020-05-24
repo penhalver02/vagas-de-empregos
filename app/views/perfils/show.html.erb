@@ -14,7 +14,7 @@
 <%= @perfil.description %>
 <%= @perfil.work_experience %>
 <% if user_signed_in?%>
-  <%= @perfil.job_perfils.each do |job_perfil|%>
+  <% @perfil.job_perfils.each do |job_perfil|%>
     <%= job_perfil.job_opportunity.title %>
     <%= job_perfil.feedback %>
   <% end %>
@@ -30,9 +30,19 @@
   <% @comments.each do |comment|%>
     <%= comment.message %>
   <% end %>
-  <%= @perfil.job_perfils.each do |job_perfil|%>
+  <% @perfil.job_perfils.each do |job_perfil|%>
     <%= job_perfil.job_opportunity.title %>
     <%= job_perfil.feedback %>
   <% end %>
   <%= link_to 'Favorito', perfil_favorites_path(@perfil), method: :post %>
+<% end %>
+
+
+<% @perfil.offers.order(created_at: :desc).each do |offer| %>
+  <%= offer.salary %>
+  <%= offer.benefit %>
+  <%= offer.role %>
+  <%= l offer.begin_date %>
+  <%= link_to 'Aceitar', root_path %>
+  <%= link_to 'Rejeitar', root_path %>
 <% end %>

@@ -4,6 +4,7 @@ class Perfil < ApplicationRecord
   has_many :job_opportunities, through: :job_perfils
   has_many :comments
   has_many :favorites
+  has_many :offers
   has_one_attached :avatar
 
   def completed?
