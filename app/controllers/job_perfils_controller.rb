@@ -8,4 +8,9 @@ class JobPerfilsController < ApplicationController
     
     redirect_to current_user.perfil
   end
+
+  def index
+    job_opportunity = JobOpportunity.find_by(id: params[:job_opportunity_id], headhunter: current_headhunter)
+    @job_perfils = job_opportunity.perfils
+  end
 end

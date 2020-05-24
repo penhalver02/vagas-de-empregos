@@ -19,4 +19,12 @@ feature 'User view perfil' do
     expect(page).to have_content('Diariamente acompanha o sistema produtivo da empresa visando sua otimização')
     expect(page).to have_content('De 3 a 5 anos')
   end
+
+  xscenario 'cannot view unless logged in' do
+    perfil = create(:perfil)
+
+    visit perfil_path(perfil)
+
+    expect(current_path).to eq(new_user_session_path)
+  end
 end

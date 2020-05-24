@@ -66,12 +66,12 @@ feature 'Headhunter view jobs' do
     expect(current_path).to eq(job_opportunities_path)
   end
 
-  xscenario 'cannot view unless logged in' do
+  scenario 'cannot view unless logged in' do
     job_opportunity = create(:job_opportunity)
 
     visit job_opportunity_path(job_opportunity)
 
-    expect(current_path).to eq(new_headhunter_session_path)
+    expect(current_path).to eq(new_user_session_path)
   end
 
   scenario 'view your job' do

@@ -1,4 +1,5 @@
 class PerfilsController < ApplicationController
+  before_action :authenticate_user!, only: [:update]
   before_action :find_perfil, only: [:show, :update, :edit]
   before_action :set_attributes_for_headhunter, only: :show, if: :headhunter_signed_in?
 
