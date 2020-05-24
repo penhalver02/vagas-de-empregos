@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_24_013818) do
+ActiveRecord::Schema.define(version: 2020_05_24_163931) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -89,6 +89,22 @@ ActiveRecord::Schema.define(version: 2020_05_24_013818) do
     t.index ["perfil_id"], name: "index_job_perfils_on_perfil_id"
   end
 
+  create_table "offers", force: :cascade do |t|
+    t.date "begin_date"
+    t.float "salary"
+    t.string "benefit"
+    t.string "role"
+    t.integer "headhunter_id", null: false
+    t.integer "job_opportunity_id", null: false
+    t.integer "perfil_id", null: false
+    t.integer "status", default: 0
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["headhunter_id"], name: "index_offers_on_headhunter_id"
+    t.index ["job_opportunity_id"], name: "index_offers_on_job_opportunity_id"
+    t.index ["perfil_id"], name: "index_offers_on_perfil_id"
+  end
+
   create_table "perfils", force: :cascade do |t|
     t.string "full_name"
     t.string "social_name"
@@ -122,5 +138,8 @@ ActiveRecord::Schema.define(version: 2020_05_24_013818) do
   add_foreign_key "job_opportunities", "headhunters"
   add_foreign_key "job_perfils", "job_opportunities"
   add_foreign_key "job_perfils", "perfils"
+  add_foreign_key "offers", "headhunters"
+  add_foreign_key "offers", "job_opportunities"
+  add_foreign_key "offers", "perfils"
   add_foreign_key "perfils", "users"
 end

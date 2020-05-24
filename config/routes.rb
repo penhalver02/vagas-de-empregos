@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   root 'home#index'
   resources :job_opportunities do
     resources :job_perfils, only: [:new, :create, :index, :edit, :update]
+    resources :offers, only: [:new, :create]
   end
   resources :perfils, only: [:show, :edit, :update, :index] do
     resources :comments, only: [:new, :create]

@@ -1,7 +1,8 @@
 <h1>Candidatos da vaga</h1>
 
-<%= @job_perfils.each do |job_perfil| %>
+<% @job_perfils.each do |job_perfil| %>
   <%= job_perfil.perfil.full_name %>
   <%= job_perfil.perfil.degree %>
   <%= link_to 'Rejeitar', edit_job_opportunity_job_perfil_path(@job_opportunity,job_perfil) %>
+  <%= link_to 'Enviar proposta', new_job_opportunity_offer_path(perfil_id: job_perfil.perfil.id) %>
 <% end %>
