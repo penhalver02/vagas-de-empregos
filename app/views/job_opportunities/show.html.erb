@@ -29,10 +29,20 @@
             <%= @job_opportunity.headhunter.email %>
           </div>
           
-          <%= link_to 'Candidatos da Vaga', job_opportunity_job_perfils_path(@job_opportunity) %>
-          <%= link_to 'Inscrever', job_opportunity_job_perfils_path(@job_opportunity), method: :post%>
-          <%= link_to 'Editar', edit_job_opportunity_path(@job_opportunity), class: "btn btn-outline-dark btn-lg" %>
-          <%= link_to 'Apagar', job_opportunity_path(@job_opportunity), method: :delete, data: {confirm: 'Você tem certeza'}, class: "btn btn-outline-dark btn-lg" %>
+          <% if user_signed_in?%>
+            <% if !@job_opportunity.closed?%>
+              <%= link_to 'Inscrever', job_opportunity_job_perfils_path(@job_opportunity), method: :post%>  
+            <% end %>
+            
+          <% else%>
+            <% if !@job_opportunity.closed?%>
+              <%= link_to 'Fechar', close_job_opportunity_path(@job_opportunity), method: :put %>
+              <%= link_to 'Editar', edit_job_opportunity_path(@job_opportunity), class: "btn btn-outline-dark btn-lg" %>
+            <% end %>
+            <%= link_to 'Candidatos da Vaga', job_opportunity_job_perfils_path(@job_opportunity) %>
+            
+            <%= link_to 'Apagar', job_opportunity_path(@job_opportunity), method: :delete, data: {confirm: 'Você tem certeza'}, class: "btn btn-outline-dark btn-lg" %>
+          <% end %>
           <%= link_to 'Voltar', job_opportunities_path, class: "btn btn-outline-dark btn-lg" %>
         </div>
       </div>

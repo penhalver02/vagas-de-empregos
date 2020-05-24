@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_24_211404) do
+ActiveRecord::Schema.define(version: 2020_05_24_224522) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -75,6 +75,7 @@ ActiveRecord::Schema.define(version: 2020_05_24_211404) do
     t.integer "headhunter_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "closed", default: false
     t.index ["headhunter_id"], name: "index_job_opportunities_on_headhunter_id"
   end
 

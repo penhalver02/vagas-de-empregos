@@ -1,7 +1,7 @@
 class JobOpportunitiesController < ApplicationController
   before_action :authenticate_headhunter_and_user, only: [:show, :index]
   before_action :authenticate_headhunter!, except: [:show, :index]
-  before_action :set_job_opportunity, only: [:edit, :update, :destroy, :show]
+  before_action :set_job_opportunity, only: [:edit, :update, :destroy, :show, :close]
   
   def headhunter
     @job_opportunities = current_headhunter.job_opportunities
@@ -49,7 +49,12 @@ class JobOpportunitiesController < ApplicationController
 
     redirect_to job_opportunities_path
   end
-
+  
+  def close
+    @job_opportunity.update(closed: true)
+    flash[:notice] = 'Vaga fechada'
+    redirect_to @job_opportunity
+  end
   private
 
   def job_opportunity_params
