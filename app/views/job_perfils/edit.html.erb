@@ -1,0 +1,7 @@
+<h1>Escreva feedback</h1>
+
+<%= form_with model: [@job_opportunity, @job_perfil], local: true do |f| %>
+  <%= f.label :feedback, 'Mensagem' %>
+  <%= f.text_field :feedback %>
+  <%= f.submit 'Enviar' %>
+<% end %>
