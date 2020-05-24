@@ -8,5 +8,6 @@ FactoryBot.define do
     job_opportunity 
     perfil 
     status { 0 }
+    feedback {'salario baixo'}
   end
 end

@@ -42,6 +42,10 @@ class OffersController < ApplicationController
       render :review
     end
   end
+
+  def index
+    @offers = Offer.all
+  end
   private
 
   def offer_params

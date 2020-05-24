@@ -3,8 +3,6 @@ require 'rails_helper'
 feature'User reply offer' do
   scenario 'accept succeffuly' do
     user = create(:user)
-    #perfil = create(:perfil, user: user)
-    
     offer = create(:offer, begin_date: '10/03/2090', salary: 4000, benefit: 'vale refeicao', 
                   role: 'Desenvolver projetos de melhoria', perfil: user.perfil)
 
@@ -19,8 +17,6 @@ feature'User reply offer' do
 
   scenario'reject reply offer' do
     user = create(:user)
-    #perfil = create(:perfil, user: user)
-    
     offer = create(:offer, begin_date: '10/03/2090', salary: 4000, benefit: 'vale refeicao', 
                   role: 'Desenvolver projetos de melhoria', perfil: user.perfil)
 
