@@ -18,9 +18,33 @@ class OffersController < ApplicationController
     end
   end
 
+  def accept
+    @offer = Offer.find_by(job_opportunity_id: params[:job_opportunity_id], perfil: current_user.perfil, 
+                          id: params[:offer_id] )
+    
+    @offer.accept
+    flash[:notice] = 'Proposta aceita'
+    redirect_to current_user.perfil
+  end
+
+  def review
+    @offer = Offer.find_by(job_opportunity_id: params[:job_opportunity_id], perfil: current_user.perfil, 
+                          id: params[:offer_id] )
+  end
+
+  def reject
+    @offer = Offer.find_by(job_opportunity_id: params[:job_opportunity_id], perfil: current_user.perfil, 
+      id: params[:offer_id] )
+    if @offer.update(feedback: offer_params[:feedback], status: :rejeitado)
+      flash[:notice] = 'Proposta Rejeitada'
+      redirect_to current_user.perfil
+    else
+      render :review
+    end
+  end
   private
 
   def offer_params
-    params.require(:offer).permit(:begin_date, :salary, :benefit, :role, :perfil_id)
+    params.require(:offer).permit(:begin_date, :salary, :benefit, :role, :perfil_id, :feedback)
   end
 end

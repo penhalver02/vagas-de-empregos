@@ -43,6 +43,10 @@
   <%= offer.benefit %>
   <%= offer.role %>
   <%= l offer.begin_date %>
-  <%= link_to 'Aceitar', root_path %>
-  <%= link_to 'Rejeitar', root_path %>
+  <% if offer.criado?%>
+    <%= link_to 'Aceitar', job_opportunity_offer_accept_path(offer.job_opportunity,offer), method: :put %>
+    <%= link_to 'Rejeitar', job_opportunity_offer_reject_path(offer.job_opportunity,offer) %>
+  <% else %>
+    <p><%= offer.aceito? ? 'Oferta aceita' : 'Oferta rejeitada'%></p>
+  <% end %>
 <% end %>

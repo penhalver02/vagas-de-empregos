@@ -5,7 +5,11 @@ Rails.application.routes.draw do
   root 'home#index'
   resources :job_opportunities do
     resources :job_perfils, only: [:new, :create, :index, :edit, :update]
-    resources :offers, only: [:new, :create]
+    resources :offers, only: [:new, :create] do
+      put '/accept', to: 'offers#accept'
+      get '/reject', to: 'offers#review'
+      put '/reject', to: 'offers#reject'
+    end
   end
   resources :perfils, only: [:show, :edit, :update, :index] do
     resources :comments, only: [:new, :create]

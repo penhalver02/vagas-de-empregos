@@ -1,0 +1,7 @@
+<h1>Review para headhunter</h1>
+
+<%= form_with model:  @offer, url: job_opportunity_offer_reject_path(@offer.job_opportunity, @offer), method: :put, local: true  do|f| %>
+  <%= f.label :feedback, 'Comentario' %>
+  <%= f.text_field :feedback %>
+  <%= f.submit 'Enviar' %>
+<% end %>
