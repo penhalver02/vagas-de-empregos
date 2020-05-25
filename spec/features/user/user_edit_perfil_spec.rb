@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 feature 'User edit perfil' do
@@ -17,7 +19,7 @@ feature 'User edit perfil' do
 
     expect(page).to have_content('Lucas Penhalver')
     expect(page).to have_content('Lucas Penhalver')
-    expect(page).to have_content(I18n.l(Date.parse '11/11/1989'))
+    expect(page).to have_content(I18n.l(Date.parse('11/11/1989')))
     expect(page).to have_content('Engenharia de produção')
     expect(page).to have_content('Diariamente acompanha o sistema produtivo da empresa visando sua otimização')
     expect(page).to have_content('De 3 a 5 anos')

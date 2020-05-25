@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 feature 'Headhunter add user to favorite' do
@@ -18,12 +20,11 @@ feature 'Headhunter add user to favorite' do
     headhunter = create(:headhunter)
     perfil = create(:perfil, full_name: 'Lucas Penhalver')
     favorite = create(:favorite, perfil: perfil)
-   
+
     login_as headhunter, scope: :headhunter
     visit root_path
     click_on 'Candidatos'
     click_on 'Lucas Penhalver'
-    
 
     expect(page).not_to have_css('span#favorite')
   end

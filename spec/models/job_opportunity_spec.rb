@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe JobOpportunity, type: :model do
@@ -60,7 +62,7 @@ RSpec.describe JobOpportunity, type: :model do
 
     it 'slary must be greater than 0' do
       job_opportunity = build(:job_opportunity, salary: -10)
-      
+
       job_opportunity.valid?
 
       expect(job_opportunity.errors[:salary]).to include('deve ser maior que 0')

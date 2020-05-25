@@ -1,24 +1,36 @@
-# README
+# Vagas de Emprego
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Descrição
+Projeto construído para meios de estudo, realizado no curso treinadev oferecido pela campus code, o projeto tem como finalidade recrutadores divulgarem vagas de emprego para buscarem candidatos com perfis adequados para a vaga, candidato consegue se candidatar para mais de uma vaga e aguarda a resposta do recrutador
 
-Things you may want to cover:
+## Especificações 
 
-* Ruby version
+* Versão do ruby 2.7.0
+* Versão do rails 6.0.2
 
-* System dependencies
+## Gem utilizadas
 
-* Configuration
+1. capybara
+   - Utilizada para realização de teste de feature 
+2. rspec-rails
+   -  Utilizada para realização de teste de feature e unitários
+3. devise
+   - Realizar as autenticações e permissões dos usuários 
+4. factory bot
+   - Facilitar a criação de testes
+5. rubocop
+   - Organização do projeto e formatação 
+6. simplecov
+   - verificar a porcentagem de utilização de testes
+7. pry
+   - Usada para debugar o projeto e facilitar a resolução de erros
 
-* Database creation
+## Banco de dados
 
-* Database initialization
+* SQLit
+* Comando para iniciar rails db:create, rails db:migrate
 
-* How to run the test suite
+## Rodando teste
 
-* Services (job queues, cache servers, search engines, etc.)
+* Utilize o comando rspec no terminal
 
-* Deployment instructions
-
-* ...

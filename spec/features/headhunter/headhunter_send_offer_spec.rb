@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 feature 'Headhunter send offer' do
@@ -13,7 +15,7 @@ feature 'Headhunter send offer' do
     click_on 'Desenvolvedor Junior'
     click_on 'Candidatos da Vaga'
     click_on 'Enviar proposta'
-    
+
     fill_in 'Data de inicio', with: '01/10/2090'
     fill_in 'Salário', with: '4000'
     fill_in 'Benefícios', with: 'Vale refeicao'

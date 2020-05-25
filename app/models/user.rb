@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class User < ApplicationRecord
   has_one :perfil
   # Include default devise modules. Others available are:
@@ -5,7 +7,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  after_create do 
+  after_create do
     create_perfil
   end
 end

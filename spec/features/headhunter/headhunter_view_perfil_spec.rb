@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 feature 'Headhunter view perfil' do
@@ -28,9 +30,9 @@ feature 'Headhunter view perfil' do
     headhunter = create(:headhunter)
     user = create(:user)
     perfil = Perfil.create!(full_name: 'Lucas Penhalver', social_name: 'Lucas Penhalver', date_birth: '11/11/1989',
-      degree: 'Engenharia de produção',
-      description: 'Diariamente acompanha o sistema produtivo da empresa visando sua otimização',
-      work_experience: 'De 3 a 5 anos', user: user)
+                            degree: 'Engenharia de produção',
+                            description: 'Diariamente acompanha o sistema produtivo da empresa visando sua otimização',
+                            work_experience: 'De 3 a 5 anos', user: user)
 
     login_as headhunter, scope: :headhunter
     visit root_path
@@ -43,6 +45,5 @@ feature 'Headhunter view perfil' do
     expect(page).to have_content('Engenharia de produção')
     expect(page).to have_content('Diariamente acompanha o sistema produtivo da empresa visando sua otimização')
     expect(page).to have_content('De 3 a 5 anos')
-    
   end
 end

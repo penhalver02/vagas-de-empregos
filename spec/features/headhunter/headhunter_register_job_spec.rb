@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 feature 'Headhunter register jo' do
@@ -16,7 +18,6 @@ feature 'Headhunter register jo' do
     fill_in 'Cargo', with: 'Desenvolvedor junior'
     fill_in 'Data final', with:  '20/08/2090'
     fill_in 'Localização', with: 'Avenida Paulista'
-    
 
     click_on 'Enviar'
 
@@ -25,7 +26,7 @@ feature 'Headhunter register jo' do
     expect(page).to have_content('Conhecimento em ruby, javascript')
     expect(page).to have_content('Salário: 3500')
     expect(page).to have_content('Desenvolvedor junior')
-    expect(page).to have_content ('20/08/2090')
+    expect(page).to have_content '20/08/2090'
     expect(page).to have_content('Localização: Avenida Paulista')
     expect(page).to have_content(headhunter.email)
   end

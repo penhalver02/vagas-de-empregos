@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 feature 'Headhunter authentication' do
@@ -11,7 +13,6 @@ feature 'Headhunter authentication' do
     within 'form' do
       click_on 'Entrar'
     end
-    
 
     expect(page).to have_content('Login efetuado com sucesso!')
     expect(page).not_to have_link('Entrar como Recrutador')
@@ -47,7 +48,7 @@ feature 'Headhunter authentication' do
     within 'form' do
       click_on 'Entrar'
     end
-    
+
     expect(page).to have_content('Email não pode ficar em branco')
     expect(page).to have_content('Senha não pode ficar em branco')
     expect(page).to have_link('Entrar')

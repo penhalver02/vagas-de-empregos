@@ -1,13 +1,13 @@
+# frozen_string_literal: true
+
 class PerfilsController < ApplicationController
   before_action :authenticate_user!, only: [:update]
-  before_action :find_perfil, only: [:show, :update, :edit]
+  before_action :find_perfil, only: %i[show update edit]
   before_action :set_attributes_for_headhunter, only: :show, if: :headhunter_signed_in?
 
-  def show
-  end
+  def show; end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @perfil.update(perfil_params)
@@ -32,6 +32,7 @@ class PerfilsController < ApplicationController
     @comments = current_headhunter.comments
     @comment = Comment.new(perfil: @perfil)
   end
+
   def find_perfil
     @perfil = Perfil.find(params[:id])
   end

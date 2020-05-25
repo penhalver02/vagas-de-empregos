@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 feature 'Headhunter reject user' do
@@ -6,7 +8,6 @@ feature 'Headhunter reject user' do
     job_opportunity = create(:job_opportunity, title: 'Desenvolvedor Junior', headhunter: headhunter)
     perfil = create(:perfil, full_name: 'Lucas Penhalver')
     job_perfil = create(:job_perfil, perfil: perfil, job_opportunity: job_opportunity)
-    
 
     login_as headhunter, scope: :headhunter
     visit root_path
