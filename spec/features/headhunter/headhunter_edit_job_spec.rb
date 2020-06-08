@@ -17,7 +17,7 @@ feature 'Headhunter edit job' do
     expect(page).to have_content('Desenvolvedor sênior')
   end
 
-  scenario 'successfully' do
+  scenario 'cannot be blank' do
     headhunter = create(:headhunter)
     job_opportunity = create(:job_opportunity, title: 'Desenvolvedor Junior', headhunter: headhunter)
 

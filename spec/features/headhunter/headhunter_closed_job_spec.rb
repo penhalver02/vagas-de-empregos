@@ -23,4 +23,12 @@ feature 'Headhunter closed job' do
 
     expect(page).not_to have_content('Vaga fechada')
   end
+
+  scenario 'must be loggin' do
+    job_opportunity = create(:job_opportunity)
+
+    visit job_opportunity_path(job_opportunity)
+
+    expect(current_path).to eq(new_user_session_path)
+  end
 end
