@@ -1,5 +1,7 @@
 <h1>Criar comentario</h1>
 
+<%= render 'share/errors', object: @comment %>
+
 <%= form_with model: [@perfil, @comment] , local: true do |f|%>
   <%= f.label :message %>
   <%= f.text_field :message %>
