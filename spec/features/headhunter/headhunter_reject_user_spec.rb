@@ -16,7 +16,7 @@ feature 'Headhunter reject user' do
     click_on 'Candidatos da Vaga'
     click_on 'Rejeitar'
 
-    fill_in 'Mensagem', with: 'Procuramos pessoal com mais experiencia'
+    fill_in 'Comentario', with: 'Procuramos pessoal com mais experiencia'
     click_on 'Enviar'
 
     expect(page).to have_content('Lucas Penhalver')

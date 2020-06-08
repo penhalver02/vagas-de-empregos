@@ -1,0 +1,9 @@
+---
+  pt-BR:
+    activerecord:
+      models:
+        job_perfil: Perfil na vaga
+      attributes:
+        job_perfil:
+          feedback: Comentario
+          rejected: Rejeitado
