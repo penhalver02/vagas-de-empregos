@@ -32,5 +32,5 @@ Projeto construído para meios de estudo, realizado no curso treinadev oferecido
 
 ## Rodando teste
 
-* Utilize o comando rspec no terminal
+* Utilize o comando rspec no terminalrail
 

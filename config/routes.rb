@@ -15,8 +15,12 @@ Rails.application.routes.draw do
     resources :comments, only: [:new, :create]
     resources :favorites, only: [:create, :destroy]
   end
+  scope '/headhunters' do
+    get 'job_opportunities', to: 'job_opportunities#headhunter', as: :headhunter_job_opportunities
+    get 'offer', to: 'offers#index', as: :headhunter_offer
+  end
 
-  get '/headhunters/job_opportunities', to: 'job_opportunities#headhunter', as: :headhunter_job_opportunities
-  get '/headhunters/offer', to: 'offers#index', as: :headhunter_offer
+  #get '/headhunters/job_opportunities', to: 'job_opportunities#headhunter', as: :headhunter_job_opportunities
+  #get '/headhunters/offer', to: 'offers#index', as: :headhunter_offer
   put '/job_opportunities/:id/close', to: 'job_opportunities#close', as: :close_job_opportunity
 end
