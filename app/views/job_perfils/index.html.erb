@@ -1,5 +1,7 @@
 <h1>Candidatos da vaga</h1>
-
+<% if @job_perfils.empty? %>
+  <p>Nenhum candidato aplicador</p>
+<% end %>
 <% @job_perfils.each do |job_perfil| %>
   <%= job_perfil.perfil.full_name %>
   <%= job_perfil.perfil.degree %>

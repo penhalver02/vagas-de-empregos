@@ -20,4 +20,18 @@ feature 'headhunter view user' do
     expect(page).to have_content('Lucas Penhalver')
     expect(page).to have_content('Marcio Alves')
   end
+
+  scenario 'job is empyt' do
+    headhunter = create(:headhunter)
+    job_opportunity = create(:job_opportunity, title: 'Desenvolvedor Junior', headhunter: headhunter)
+    
+
+    login_as headhunter, scope: :headhunter
+    visit root_path
+    click_on 'Minhas Vagas'
+    click_on 'Desenvolvedor Junior'
+    click_on 'Candidatos da Vaga'
+
+    expect(page).to have_content('Nenhum candidato aplicado')
+  end
 end
