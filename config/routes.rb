@@ -20,7 +20,5 @@ Rails.application.routes.draw do
     get 'offer', to: 'offers#index', as: :headhunter_offer
   end
 
-  #get '/headhunters/job_opportunities', to: 'job_opportunities#headhunter', as: :headhunter_job_opportunities
-  #get '/headhunters/offer', to: 'offers#index', as: :headhunter_offer
   put '/job_opportunities/:id/close', to: 'job_opportunities#close', as: :close_job_opportunity
 end

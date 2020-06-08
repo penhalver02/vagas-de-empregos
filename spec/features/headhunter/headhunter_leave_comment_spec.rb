@@ -14,7 +14,7 @@ feature 'Headhunter leave a comment' do
     click_on 'Lucas Penhalver'
     click_on 'Comentar'
 
-    fill_in 'Menssagem', with: 'Otimo candidato para areas de humas, muito experiente'
+    fill_in 'Mensagem', with: 'Otimo candidato para areas de humas, muito experiente'
     click_on 'Enviar'
 
     expect(page).to have_content('Otimo candidato para areas de humas, muito experiente')
