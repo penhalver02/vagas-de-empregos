@@ -1,0 +1,12 @@
+---
+  pt-BR:
+    activerecord:
+      models:
+        offer: Oferta
+      attributes:
+        offer:
+          begin_date: Data de inicio
+          salary: Salário
+          benefit: Benefícios
+          role: Cargo
+          feedback: Comentario

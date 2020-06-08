@@ -1,13 +1,13 @@
 <h1>Proposta para candidato</h1>
 
 <%= form_with model: [@job_opportunity, @offer], locas: true do |f| %>
-  <%= f.label :begin_date, 'Data de inicio' %>
+  <%= f.label :begin_date %>
   <%= f.date_field :begin_date %>
-  <%= f.label :salary, 'Salário' %>
+  <%= f.label :salary %>
   <%= f.date_field :salary %>
-  <%= f.label :benefit, 'Benefícios' %>
+  <%= f.label :benefit %>
   <%= f.date_field :benefit %>
-  <%= f.label :role, 'Funções do cargo' %>
+  <%= f.label :role %>
   <%= f.date_field :role %>
   <%= f.hidden_field :perfil_id, value: @perfil.id %>
   <%= f.submit 'Enviar' %>

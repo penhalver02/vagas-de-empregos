@@ -19,7 +19,7 @@ feature 'Headhunter send offer' do
     fill_in 'Data de inicio', with: '01/10/2090'
     fill_in 'Salário', with: '4000'
     fill_in 'Benefícios', with: 'Vale refeicao'
-    fill_in 'Funções do cargo', with: 'Desenvolver projetos de melhoria'
+    fill_in 'Cargo', with: 'Desenvolver projetos de melhoria'
     click_on 'Enviar'
 
     expect(page).to have_content('Enviado com sucesso')
