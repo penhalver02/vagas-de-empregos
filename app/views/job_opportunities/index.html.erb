@@ -7,14 +7,16 @@
           <p class="alert-heading text-center">Nenhuma vaga criada</p>
         <% else %>
           <% @job_opportunities.each do |job_opportunity| %>
-            <div class="card">
-              <div class="card-header">
-                <%= link_to job_opportunity.title, job_opportunity %>
+            <% if !job_opportunity.closed%>
+              <div class="card">
+                <div class="card-header">
+                  <%= link_to job_opportunity.title, job_opportunity %>
+                </div>
+                <div class="card-body">
+                  <%= job_opportunity.description %>
+                </div>
               </div>
-              <div class="card-body">
-                <%= job_opportunity.description %>
-              </div>
-            </div>
+            <% end %>
           <% end %>
         <% end %>
       </div>

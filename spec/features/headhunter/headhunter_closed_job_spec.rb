@@ -13,4 +13,14 @@ feature 'Headhunter closed job' do
     expect(page).to have_content('Vaga fechada')
     expect(page).not_to have_link('Editar')
   end
+
+  scenario 'user does not see' do
+    job_opportunity = create(:job_opportunity, title: 'Vaga fechada', closed: true)
+    user = create(:user)
+
+    login_as user, scope: :user
+    visit job_opportunities_path
+
+    expect(page).not_to have_content('Vaga fechada')
+  end
 end
