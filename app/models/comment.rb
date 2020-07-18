@@ -2,6 +2,6 @@
 
 class Comment < ApplicationRecord
   belongs_to :headhunter
-  belongs_to :perfil
+  belongs_to :profile
   validates :message, presence: true
 end

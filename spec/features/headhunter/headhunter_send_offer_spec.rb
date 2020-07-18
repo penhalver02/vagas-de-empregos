@@ -6,8 +6,8 @@ feature 'Headhunter send offer' do
   scenario 'successfully' do
     headhunter = create(:headhunter)
     job_opportunity = create(:job_opportunity, headhunter: headhunter, title: 'Desenvolvedor Junior')
-    perfil = create(:perfil)
-    job_perfil = create(:job_perfil, job_opportunity: job_opportunity)
+    profile = create(:profile)
+    job_profile = create(:job_profile, job_opportunity: job_opportunity)
 
     login_as headhunter, scope: :headhunter
     visit root_path

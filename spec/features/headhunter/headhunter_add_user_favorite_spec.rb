@@ -5,7 +5,7 @@ require 'rails_helper'
 feature 'Headhunter add user to favorite' do
   scenario 'successfully' do
     headhunter = create(:headhunter)
-    perf = create(:perfil, full_name: 'Lucas Penhalver')
+    perf = create(:profile, full_name: 'Lucas Penhalver')
 
     login_as headhunter, scope: :headhunter
     visit root_path
@@ -18,8 +18,8 @@ feature 'Headhunter add user to favorite' do
 
   scenario 'another headhunter cant view' do
     headhunter = create(:headhunter)
-    perfil = create(:perfil, full_name: 'Lucas Penhalver')
-    favorite = create(:favorite, perfil: perfil)
+    profile = create(:profile, full_name: 'Lucas Penhalver')
+    favorite = create(:favorite, profile: profile)
 
     login_as headhunter, scope: :headhunter
     visit root_path

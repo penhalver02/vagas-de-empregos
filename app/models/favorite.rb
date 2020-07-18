@@ -2,5 +2,5 @@
 
 class Favorite < ApplicationRecord
   belongs_to :headhunter
-  belongs_to :perfil
+  belongs_to :profile
 end

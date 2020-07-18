@@ -39,7 +39,7 @@ feature 'User authentication' do
 
     click_on 'Cadastrar-se'
 
-    expect(current_path).to eq(edit_perfil_path(User.last.perfil.id))
+    expect(current_path).to eq(edit_profile_path(User.last.profile.id))
     expect(page).to have_content('Login efetuado com sucesso')
     expect(page).to have_link('Sair')
     expect(page).not_to have_link('Entrar como Usuário')
@@ -47,7 +47,7 @@ feature 'User authentication' do
 
   scenario 'login' do
     user = User.create!(email: 'user@test.com.br', password: '12345678')
-    user.perfil.update(full_name: 'Lucas Penhalver', social_name: 'Lucas Penhalver', date_birth: '11/11/1989',
+    user.profile.update(full_name: 'Lucas Penhalver', social_name: 'Lucas Penhalver', date_birth: '11/11/1989',
                        degree: 'Engenharia de produção',
                        description: 'Diariamente acompanha o sistema produtivo da empresa visando sua otimização',
                        work_experience: 'De 3 a 5 anos')

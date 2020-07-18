@@ -1,7 +1,7 @@
-class CreateJobPerfils < ActiveRecord::Migration[6.0]
+class CreateJobProfiles < ActiveRecord::Migration[6.0]
   def change
-    create_table :job_perfils do |t|
-      t.belongs_to :perfil, null: false, foreign_key: true
+    create_table :job_profiles do |t|
+      t.belongs_to :profile, null: false, foreign_key: true
       t.belongs_to :job_opportunity, null: false, foreign_key: true
 
       t.timestamps

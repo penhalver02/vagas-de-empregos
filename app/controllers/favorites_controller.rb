@@ -2,15 +2,15 @@
 
 class FavoritesController < ApplicationController
   def create
-    perfil = Perfil.find(params[:perfil_id])
-    Favorite.new(perfil: perfil, headhunter: current_headhunter).save
-    redirect_to perfil
+    profile = Profile.find(params[:profile_id])
+    Favorite.new(profile: profile, headhunter: current_headhunter).save
+    redirect_to profile
   end
 
   def destroy
-    perfil = Perfil.find(params[:perfil_id])
-    @favorite = Favorite.find(perfil: perfil, headhunter: current_headhunter)
+    profile = Profile.find(params[:profile_id])
+    @favorite = Favorite.find(profile: profile, headhunter: current_headhunter)
     @favorite.destroy
-    redirect_to perfil
+    redirect_to profile
   end
 end

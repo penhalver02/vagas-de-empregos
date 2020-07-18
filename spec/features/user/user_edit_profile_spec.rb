@@ -2,12 +2,12 @@
 
 require 'rails_helper'
 
-feature 'User edit perfil' do
+feature 'User edit profile' do
   scenario 'successfully' do
     user = create(:user)
 
     login_as user, scope: :user
-    visit edit_perfil_path(user.perfil)
+    visit edit_profile_path(user.profile)
 
     fill_in 'Nome Completo', with: 'Lucas Penhalver'
     fill_in 'Nome Social', with: 'Lucas Penhalver'

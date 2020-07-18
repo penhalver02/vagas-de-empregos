@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 FactoryBot.define do
-  factory :job_perfil do
-    perfil
+  factory :job_profile do
+    profile
     job_opportunity
   end
 end

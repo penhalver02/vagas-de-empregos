@@ -1,0 +1,11 @@
+<h1>Candidatos</h1>
+
+<% @profiles.each do |profile|%>
+  <%= link_to profile.full_name, profile %>
+  <%= profile.degree %>
+<% end %>
+
+<% if @profiles.empty?%>
+  <p>Nenhum candidato cadastrado</p>
+<% end%>
+

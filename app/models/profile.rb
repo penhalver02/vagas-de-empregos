@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-class Perfil < ApplicationRecord
+class Profile < ApplicationRecord
   belongs_to :user
-  has_many :job_perfils
-  has_many :job_opportunities, through: :job_perfils
+  has_many :job_profiles
+  has_many :job_opportunities, through: :job_profiles
   has_many :comments
   has_many :favorites
   has_many :offers

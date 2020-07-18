@@ -3,7 +3,7 @@
 FactoryBot.define do
   factory :comment do
     headhunter { nil }
-    perfil { nil }
+    profile { nil }
     message { 'MyString' }
   end
 end

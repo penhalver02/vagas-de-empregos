@@ -3,6 +3,6 @@
 FactoryBot.define do
   factory :favorite do
     headhunter
-    perfil
+    profile
   end
 end

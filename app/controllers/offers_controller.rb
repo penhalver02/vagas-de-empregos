@@ -3,7 +3,7 @@
 class OffersController < ApplicationController
   def new
     @job_opportunity = JobOpportunity.find(params[:job_opportunity_id])
-    @perfil = Perfil.find(params[:perfil_id])
+    @profile = Profile.find(params[:profile_id])
     @offer = Offer.new
   end
 
@@ -13,33 +13,33 @@ class OffersController < ApplicationController
 
     if @offer.save
       flash[:notice] = 'Enviado com sucesso'
-      redirect_to job_opportunity_job_perfils_path(@job_opportunity)
+      redirect_to job_opportunity_job_profiles_path(@job_opportunity)
     else
-      @perfil = Perfil.find(offer_params[:perfil_id])
+      @profile = Profile.find(offer_params[:profile_id])
       render :new
     end
   end
 
   def accept
-    @offer = Offer.find_by(job_opportunity_id: params[:job_opportunity_id], perfil: current_user.perfil,
+    @offer = Offer.find_by(job_opportunity_id: params[:job_opportunity_id], profile: current_user.profile,
                            id: params[:offer_id])
 
     @offer.accept
     flash[:notice] = 'Proposta aceita'
-    redirect_to current_user.perfil
+    redirect_to current_user.profile
   end
 
   def review
-    @offer = Offer.find_by(job_opportunity_id: params[:job_opportunity_id], perfil: current_user.perfil,
+    @offer = Offer.find_by(job_opportunity_id: params[:job_opportunity_id], profile: current_user.profile,
                            id: params[:offer_id])
   end
 
   def reject
-    @offer = Offer.find_by(job_opportunity_id: params[:job_opportunity_id], perfil: current_user.perfil,
+    @offer = Offer.find_by(job_opportunity_id: params[:job_opportunity_id], profile: current_user.profile,
                            id: params[:offer_id])
     if @offer.update(feedback: offer_params[:feedback], status: :rejeitado)
       flash[:notice] = 'Proposta Rejeitada'
-      redirect_to current_user.perfil
+      redirect_to current_user.profile
     else
       render :review
     end
@@ -52,6 +52,6 @@ class OffersController < ApplicationController
   private
 
   def offer_params
-    params.require(:offer).permit(:begin_date, :salary, :benefit, :role, :perfil_id, :feedback)
+    params.require(:offer).permit(:begin_date, :salary, :benefit, :role, :profile_id, :feedback)
   end
 end

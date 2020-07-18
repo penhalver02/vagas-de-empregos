@@ -6,7 +6,7 @@ feature 'Headhunter leave a comment' do
   scenario 'successfully' do
     headhunter = create(:headhunter)
     user = create(:user, email: 'lucas@test.com.br')
-    perfil = create(:perfil, full_name: 'Lucas Penhalver')
+    profile = create(:profile, full_name: 'Lucas Penhalver')
 
     login_as headhunter, scope: :headhunter
     visit root_path
@@ -23,7 +23,7 @@ feature 'Headhunter leave a comment' do
   scenario 'cannot be blank' do
     headhunter = create(:headhunter)
     user = create(:user, email: 'lucas@test.com.br')
-    perfil = create(:perfil, full_name: 'Lucas Penhalver')
+    profile = create(:profile, full_name: 'Lucas Penhalver')
 
     login_as headhunter, scope: :headhunter
     visit root_path

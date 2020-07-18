@@ -1,6 +1,6 @@
-class CreatePerfils < ActiveRecord::Migration[6.0]
+class CreateProfiles < ActiveRecord::Migration[6.0]
   def change
-    create_table :perfils do |t|
+    create_table :profiles do |t|
       t.string :full_name
       t.string :social_name
       t.date :date_birth

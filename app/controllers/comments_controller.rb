@@ -3,15 +3,15 @@
 class CommentsController < ApplicationController
   def new
     @comment = Comment.new
-    @perfil = Perfil.find(params[:perfil_id])
+    @profile = Profile.find(params[:profile_id])
   end
 
   def create
-    @perfil = Perfil.find(params[:perfil_id])
-    @comment = Comment.new(comments_params.merge(headhunter: current_headhunter, perfil: @perfil))
+    @profile = Profile.find(params[:profile_id])
+    @comment = Comment.new(comments_params.merge(headhunter: current_headhunter, profile: @profile))
 
     if @comment.save
-      redirect_to @perfil
+      redirect_to @profile
     else
       render :new
     end

@@ -8,12 +8,12 @@ class ApplicationController < ActionController::Base
   private
 
   def after_sign_in_path
-    return edit_perfil_path(current_user.perfil) if edit_user_perfil?
+    return edit_profile_path(current_user.profile) if edit_user_profile?
 
     job_opportunities_path
   end
 
-  def edit_user_perfil?
-    current_user.present? && !current_user.perfil.completed?
+  def edit_user_profile?
+    current_user.present? && !current_user.profile.completed?
   end
 end

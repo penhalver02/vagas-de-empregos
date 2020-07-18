@@ -2,8 +2,8 @@
   pt-BR:
     activerecord:
       models:
-        job_perfil: Perfil na vaga
+        job_profile: Perfil na vaga
       attributes:
-        job_perfil:
+        job_profile:
           feedback: Comentario
           rejected: Rejeitado

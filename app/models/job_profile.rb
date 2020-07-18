@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class JobPerfil < ApplicationRecord
-  belongs_to :perfil
+class JobProfile < ApplicationRecord
+  belongs_to :profile
   belongs_to :job_opportunity
 end

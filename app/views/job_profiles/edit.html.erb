@@ -1,0 +1,9 @@
+<h1>Escreva feedback</h1>
+
+<%= render 'share/errors', object: @job_profile %>
+
+<%= form_with model: [@job_opportunity, @job_profile], local: true do |f| %>
+  <%= f.label :feedback %>
+  <%= f.text_field :feedback %>
+  <%= f.submit 'Enviar' %>
+<% end %>

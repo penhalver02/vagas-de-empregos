@@ -9,7 +9,7 @@ class Headhunter < ApplicationRecord
   has_many :comments
   has_many :favorites
 
-  def is_job_seeker_favorite?(perfil)
-    favorites.find_by(perfil_id: perfil.id).present?
+  def is_job_seeker_favorite?(profile)
+    favorites.find_by(profile_id: profile.id).present?
   end
 end

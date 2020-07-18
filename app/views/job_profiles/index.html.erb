@@ -1,0 +1,10 @@
+<h1>Candidatos da vaga</h1>
+<% if @job_profiles.empty? %>
+  <p>Nenhum candidato aplicador</p>
+<% end %>
+<% @job_profiles.each do |job_profile| %>
+  <%= job_profile.profile.full_name %>
+  <%= job_profile.profile.degree %>
+  <%= link_to 'Rejeitar', edit_job_opportunity_job_profile_path(@job_opportunity,job_profile) %>
+  <%= link_to 'Enviar proposta', new_job_opportunity_offer_path(profile_id: job_profile.profile.id) %>
+<% end %>

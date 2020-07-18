@@ -3,13 +3,13 @@
 class Offer < ApplicationRecord
   belongs_to :headhunter
   belongs_to :job_opportunity
-  belongs_to :perfil
+  belongs_to :profile
   enum status: { criado: 0, aceito: 1, rejeitado: 2 }
 
   def accept
     transaction do
       Offer
-        .where(perfil: perfil)
+        .where(profile: profile)
         .where(status: :criado)
         .update(status: :rejeitado)
 

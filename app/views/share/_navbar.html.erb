@@ -20,7 +20,7 @@
             <% if headhunter_signed_in? %>
               <%= link_to 'Sair', destroy_headhunter_session_path, method: :delete, class: "nav-link"%>
               <%= link_to 'Minhas Vagas', headhunter_job_opportunities_path, class: "nav-link"%>
-              <%= link_to 'Candidatos', perfils_path, class: "nav-link"%>
+              <%= link_to 'Candidatos', profiles_path, class: "nav-link"%>
               <%= link_to 'Propostas', headhunter_offer_path, class: "nav-link"%>
             <% else %>
               <%= link_to 'Entrar como Recrutador', new_headhunter_session_path, class: "nav-link"%>
@@ -29,7 +29,7 @@
           <li class="nav-item">  
             <% if user_signed_in? %>
               <%= link_to 'Sair', destroy_user_session_path, method: :delete, class: "nav-link"%>
-              <%= link_to current_user.email, perfil_path(current_user.perfil), class: "nav-link"%>
+              <%= link_to current_user.email, profile_path(current_user.profile), class: "nav-link"%>
             <% else %>
               <%= link_to 'Entrar como Usuário', new_user_session_path, class: "nav-link"%>
             <% end %>

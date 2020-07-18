@@ -1,0 +1,52 @@
+<h2>Detalhes do profile</h2>
+
+<div  style="width:200px; height:auto">
+  <%= image_tag(@profile.avatar, class: "rounded mx-auto d-block" )if @profile.avatar.nil? %>
+</div>
+<%= @profile.full_name %> 
+
+<% if headhunter_signed_in? && current_headhunter.is_job_seeker_favorite?(@profile)%>
+  <span id="favorite" class="glyphicon glyphicon-search" aria-hidden="true"></span>
+<% end %>
+<%= @profile.social_name %>
+<%= l @profile.date_birth if @profile.date_birth %>
+<%= @profile.degree %>
+<%= @profile.description %>
+<%= @profile.work_experience %>
+<% if user_signed_in?%>
+  <% @profile.job_profiles.each do |job_profile|%>
+    <%= job_profile.job_opportunity.title %>
+    <%= job_profile.feedback %>
+  <% end %>
+  <% if @profile.job_opportunities.present?%>
+    <% @profile.job_opportunities.each do |job_profile| %>
+      <p>Participando da vaga: <%= job_profile.title %></p>
+    <% end %>
+  <% end %>
+<% end %>
+
+<% if headhunter_signed_in?%>
+  <%= link_to 'Comentar', new_profile_comment_path(@profile) %>
+  <% @comments.each do |comment|%>
+    <%= comment.message %>
+  <% end %>
+  <% @profile.job_profiles.each do |job_profile|%>
+    <%= job_profile.job_opportunity.title %>
+    <%= job_profile.feedback %>
+  <% end %>
+  <%= link_to 'Favorito', profile_favorites_path(@profile), method: :post %>
+<% end %>
+
+
+<% @profile.offers.order(created_at: :desc).each do |offer| %>
+  <%= offer.salary %>
+  <%= offer.benefit %>
+  <%= offer.role %>
+  <%= l offer.begin_date %>
+  <% if offer.criado?%>
+    <%= link_to 'Aceitar', job_opportunity_offer_accept_path(offer.job_opportunity,offer), method: :put %>
+    <%= link_to 'Rejeitar', job_opportunity_offer_reject_path(offer.job_opportunity,offer) %>
+  <% else %>
+    <p><%= offer.aceito? ? 'Oferta aceita' : 'Oferta rejeitada'%></p>
+  <% end %>
+<% end %>

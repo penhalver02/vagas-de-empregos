@@ -2,9 +2,9 @@
   pt-BR:
     activerecord:
       models:
-        perfil: Perfil
+        profile: Perfil
       attributes:
-        perfil:
+        profile:
           full_name: Nome Completo
           social_name: Nome Social
           date_birth: Data de aniversário

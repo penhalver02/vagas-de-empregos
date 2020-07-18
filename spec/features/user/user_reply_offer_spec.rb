@@ -6,10 +6,10 @@ feature 'User reply offer' do
   scenario 'accept succeffuly' do
     user = create(:user)
     offer = create(:offer, begin_date: '10/03/2090', salary: 4000, benefit: 'vale refeicao',
-                           role: 'Desenvolver projetos de melhoria', perfil: user.perfil)
+                           role: 'Desenvolver projetos de melhoria', profile: user.profile)
 
-    login_as offer.perfil.user, scope: :user
-    visit perfil_path(offer.perfil)
+    login_as offer.profile.user, scope: :user
+    visit profile_path(offer.profile)
     click_on 'Aceitar'
 
     expect(page).to have_content('Proposta aceita')
@@ -20,10 +20,10 @@ feature 'User reply offer' do
   scenario 'reject reply offer' do
     user = create(:user)
     offer = create(:offer, begin_date: '10/03/2090', salary: 4000, benefit: 'vale refeicao',
-                           role: 'Desenvolver projetos de melhoria', perfil: user.perfil)
+                           role: 'Desenvolver projetos de melhoria', profile: user.profile)
 
-    login_as offer.perfil.user, scope: :user
-    visit perfil_path(offer.perfil)
+    login_as offer.profile.user, scope: :user
+    visit profile_path(offer.profile)
     click_on 'Rejeitar'
 
     fill_in 'Comentario', with: 'Salario baixo'
