@@ -36,4 +36,17 @@ feature 'Headhunter leave a comment' do
 
     expect(page).to have_content('Mensagem não pode ficar em branco')
   end
+  
+  scenario 'just headhunter can see' do
+    headhunter = create(:headhunter)
+    user = create(:user, email: 'lucas@test.com.br')
+    profile = create(:profile, full_name: 'Lucas Penhalver')
+
+    login_as user, scope: :user
+    
+    visit root_path
+    click_on 'lucas@test.com.br'
+    
+    expect(page).not_to have_link('Comentar')
+  end
 end
