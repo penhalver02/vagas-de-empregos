@@ -8,5 +8,13 @@ describe 'favorite', type: :request do
 
       expect(response).to redirect_to(new_headhunter_session_path)
     end
+
+    it 'cannot destroy' do
+      profile = create(:profile)
+      favorite = create(:favorite, profile: profile)
+      delete profile_favorite_path(profile,favorite), params: {}
+
+      expect(response).to redirect_to(new_headhunter_session_path)
+    end
  end
 end
