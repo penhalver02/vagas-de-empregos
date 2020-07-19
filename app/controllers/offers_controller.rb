@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 class OffersController < ApplicationController
-  before_action :authenticate_headhunter!, only: [ :create, :new]
+  before_action :authenticate_headhunter!, only: [ :create, :new, :index]
+  before_action :authenticate_user!, only: [ :accept, :reject]
   def new
     @job_opportunity = JobOpportunity.find(params[:job_opportunity_id])
     @profile = Profile.find(params[:profile_id])
