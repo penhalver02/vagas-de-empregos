@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class JobProfilesController < ApplicationController
+  before_action :authenticate_user!, only: [ :create ]
+  before_action :authenticate_headhunter!, only: [ :index, :edit, :update ]
   def create
     @job_opportunity = JobOpportunity.find(params[:job_opportunity_id])
     @job_profile = JobProfile.new

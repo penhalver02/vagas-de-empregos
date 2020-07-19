@@ -46,4 +46,20 @@ feature 'Headhunter view profile' do
     expect(page).to have_content('Diariamente acompanha o sistema produtivo da empresa visando sua otimização')
     expect(page).to have_content('De 3 a 5 anos')
   end
+
+  scenario 'cannot view unless logged in' do
+    job_opportunity = create(:job_opportunity)
+    visit job_opportunity_job_profiles_path(job_opportunity)
+
+    expect(current_path).to eq(new_headhunter_session_path)
+  end
+
+  scenario 'cannot view unless logged in with headhunter' do
+    user = create(:user)
+    login_as user, scope: :user
+    job_opportunity = create(:job_opportunity)
+    visit job_opportunity_job_profiles_path(job_opportunity)
+
+    expect(current_path).to eq(new_headhunter_session_path)
+  end
 end
