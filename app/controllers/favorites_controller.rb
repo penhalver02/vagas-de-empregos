@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class FavoritesController < ApplicationController
+  before_action :authenticate_headhunter!
   def create
     profile = Profile.find(params[:profile_id])
     Favorite.new(profile: profile, headhunter: current_headhunter).save

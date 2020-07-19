@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class CommentsController < ApplicationController
+  before_action :authenticate_headhunter!
   def new
     @comment = Comment.new
     @profile = Profile.find(params[:profile_id])

@@ -28,4 +28,14 @@ feature 'Headhunter add user to favorite' do
 
     expect(page).not_to have_css('span#favorite')
   end
+
+  scenario 'user cant view' do
+    user = create(:user, email: 'lucas@test.com')
+
+    login_as user, scope: :user
+    visit root_path
+    click_on 'lucas@test.com'
+
+    expect(page).not_to have_css('span#favorite')
+  end
 end
