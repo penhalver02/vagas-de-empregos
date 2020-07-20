@@ -4,11 +4,11 @@
   <%= f.label :begin_date %>
   <%= f.date_field :begin_date %>
   <%= f.label :salary %>
-  <%= f.date_field :salary %>
+  <%= f.text_field :salary %>
   <%= f.label :benefit %>
-  <%= f.date_field :benefit %>
+  <%= f.text_field :benefit %>
   <%= f.label :role %>
-  <%= f.date_field :role %>
+  <%= f.text_field :role %>
   <%= f.hidden_field :profile_id, value: @profile.id %>
   <%= f.submit 'Enviar' %>
 <% end %>
