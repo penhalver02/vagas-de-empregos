@@ -2,7 +2,7 @@
 
 class JobProfilesController < ApplicationController
   before_action :authenticate_user!, only: [ :create ]
-  before_action :authenticate_headhunter!, only: [ :index, :edit, :update ]
+  before_action :authenticate_headhunter!, only: [ :index, :edit, :reject ]
   def create
     @job_opportunity = JobOpportunity.find(params[:job_opportunity_id])
     @job_profile = JobProfile.new
@@ -23,9 +23,9 @@ class JobProfilesController < ApplicationController
     @job_profile = JobProfile.find(params[:id])
   end
 
-  def update
+  def reject
     @job_opportunity = JobOpportunity.find(params[:job_opportunity_id])
-    @job_profile = JobProfile.find(params[:id])
+    @job_profile = JobProfile.find(params[:job_profile_id])
     if @job_profile.update(params.require(:job_profile).permit(:feedback).merge(rejected: true))
       redirect_to @job_profile.profile
     else
