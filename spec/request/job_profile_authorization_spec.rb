@@ -22,7 +22,7 @@ describe 'job profile', type: :request do
     it 'cannot update' do
       job_opportunity = create(:job_opportunity)
       job_profile = create(:job_profile)
-      put job_opportunity_job_profile_path(job_opportunity, job_profile), params: {}
+      patch job_opportunity_job_profile_reject_path(job_opportunity, job_profile), params: {}
 
       expect(response).to redirect_to(new_headhunter_session_path)
     end
@@ -32,7 +32,7 @@ describe 'job profile', type: :request do
       login_as user, scope: :user
       job_opportunity = create(:job_opportunity)
       job_profile = create(:job_profile)
-      put job_opportunity_job_profile_path(job_opportunity, job_profile), params: {}
+      patch job_opportunity_job_profile_reject_path(job_opportunity, job_profile), params: {}
 
       expect(response).to redirect_to(new_headhunter_session_path)
     end

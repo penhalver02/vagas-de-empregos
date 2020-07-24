@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root 'home#index'
   resources :job_opportunities do
-    resources :job_profiles, only: [:new, :create, :index, :edit, :update]
+    resources :job_profiles, only: [:new, :create, :index, :edit] do
+      patch :reject
+    end
     resources :offers, only: [:new, :create] do
       put '/accept', to: 'offers#accept'
       get '/reject', to: 'offers#review'

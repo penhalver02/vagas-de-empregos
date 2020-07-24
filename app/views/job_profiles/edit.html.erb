@@ -2,7 +2,7 @@
 
 <%= render 'share/errors', object: @job_profile %>
 
-<%= form_with model: [@job_opportunity, @job_profile], local: true do |f| %>
+<%= form_with model: @job_profile, url: job_opportunity_job_profile_reject_path(@job_opportunity, @job_profile), local: true do |f| %>
   <%= f.label :feedback %>
   <%= f.text_field :feedback %>
   <%= f.submit 'Enviar' %>
